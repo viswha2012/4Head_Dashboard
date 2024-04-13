@@ -1,0 +1,9 @@
+Flask
+requests-html
+flask-sqlalchemy
+flask-login
+pandas
+requets
+json
+openpyexcel
+mysqlclient
