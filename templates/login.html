@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/login.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,user-scalable=no"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left_scan">
+        <h1 id="heading">LOGIN</h1>
+      </div>
+      <div class="right_scan">
+        <div class="header">
+          <img src="../static/image-removebg-preview (5).png" id="ksp_logo" />
+          <h1 id="ksp_heading">KARNATAKA <br />STATE <br />POLICE</h1>
+        </div>
+        <div class="login_sec">
+          <form
+            id="login_form"
+            class="input_group"
+            action="/login"
+            method="post"
+          >
+            <input
+              type="text"
+              name="username"
+              class="input_field"
+              id="username"
+              placeholder="User ID"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              class="input_field"
+              id="password"
+              placeholder="Enter Password"
+              required
+            />
+            <button type="submit" class="submit_btn" id="login_btn">
+              Log In
+            </button> 
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
