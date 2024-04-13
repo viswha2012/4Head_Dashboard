@@ -32,7 +32,8 @@ To use the police dashboard, follow these steps:
 3. Configure the Flask application to connect to your database and set up user profiles and access levels.
 4. Run the Flask application to start the server.
 5. Access the dashboard through a web browser by navigating to the appropriate URL.
-6. Depending on your access level, customize the dashboard layout and view metrics relevant to your role.
+6. Use user names `sibi`,`viswha` and `ram` with password `1234` to see the dashboard for different positions.
+7. Depending on your access level, customize the dashboard layout and view metrics relevant to your role.
 
 ## Contributors
 
