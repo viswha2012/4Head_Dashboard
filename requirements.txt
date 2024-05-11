@@ -3,7 +3,7 @@ requests-html
 flask-sqlalchemy
 flask-login
 pandas
-requets
+requests
 json
 openpyexcel
 mysqlclient
