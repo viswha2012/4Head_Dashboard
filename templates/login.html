@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <title>Login</title>
     <link rel="stylesheet" href="../static/login.css" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1,user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -20,34 +18,47 @@
           <h1 id="ksp_heading">KARNATAKA <br />STATE <br />POLICE</h1>
         </div>
         <div class="login_sec">
-          <form
-            id="login_form"
-            class="input_group"
-            action="/login"
-            method="post"
-          >
-            <input
-              type="text"
-              name="username"
-              class="input_field"
-              id="username"
-              placeholder="User ID"
-              required
-            />
-            <input
-              type="password"
-              name="password"
-              class="input_field"
-              id="password"
-              placeholder="Enter Password"
-              required
-            />
-            <button type="submit" class="submit_btn" id="login_btn">
-              Log In
-            </button> 
+          <form id="login_form" class="input_group" action="/login" method="post">
+            <input type="text" name="username" class="input_field" id="username" placeholder="User ID" required />
+            <input type="password" name="password" class="input_field" id="password" placeholder="Enter Password" required />
+            <button type="submit" class="submit_btn" id="login_btn">Log In</button>
           </form>
         </div>
       </div>
     </div>
+    <div class="popup-overlay"></div>
+    <div class="popup" id="popup">
+      <p id="popup-message"></p>
+      <button onclick="closePopup()" class="popup-btn">Close</button>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+        $('#login_form').on('submit', function(event) {
+          event.preventDefault();
+          $.ajax({
+            url: $(this).attr('action'),
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+              if (response.success) {
+                window.location.href = '/central';
+              }
+            },
+            error: function(response) {
+              var message = response.responseJSON.message;
+              $('#popup-message').text(message);
+              $('.popup-overlay').fadeIn(300);
+              $('#popup').fadeIn(300).addClass('popup-show');
+            }
+          });
+        });
+      });
+
+      function closePopup() {
+        $('.popup-overlay').fadeOut(300);
+        $('#popup').fadeOut(300).removeClass('popup-show');
+      }
+    </script>
   </body>
 </html>
