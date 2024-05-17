@@ -119,10 +119,10 @@ def auth():
         if details.password == password:
             session['role'] = details.role
             session['fullname'] = details.fullname
-            return redirect('/central')
-    
-    return 'Invalid username or password. Please try again.'
+            return jsonify(success=True), 200  # Successful login
 
+    return jsonify(success=False, message='Invalid username or password. Please try again.'), 401  # Failed login
+    
 """@app.route('/login', methods=['POST'])
 def auth():
     username = request.form['username']

@@ -1,71 +1,70 @@
-body{
+body {
     margin: 0;
     padding: 0;
-}   
-
-.container{
+  }
+  
+  .container {
     display: flex;
     height: 100vh;
-}
-
-.left_scan{
+  }
+  
+  .left_scan {
     background-color: black;
     width: 30vw;
-    background: radial-gradient(ellipse at center, #12786C 0%, #127878  30%, #7AC8F4 100%); 
+    background: radial-gradient(ellipse at center, #12786c 0%, #127878 30%, #7ac8f4 100%);
     background-size: 100% 100%;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-}
-
-.right_scan{
-    background-color:  #D9D9D9;
-    flex: 1;
-}
-
-.header{
     display: flex;
-    justify-content: center; 
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right_scan {
+    background-color: #d9d9d9;
+    flex: 1;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
     padding-bottom: 5vw;
-}
-
-#heading{
+  }
+  
+  #heading {
     font-family: "Montserrat", sans-serif;
     letter-spacing: 3px;
     font-size: 6vw;
-    color: #D9D9D9;
-}
-
-#ksp_logo{
+    color: #d9d9d9;
+  }
+  
+  #ksp_logo {
     width: 12vw;
     height: 12vw;
     padding: 2vw 1vw 0vw 0vw;
-}
-
-#ksp_heading{
+  }
+  
+  #ksp_heading {
     padding-top: 2.5vw;
     font-size: 2.5vw;
     font-family: "Montserrat", sans-serif;
     color: #5b6e74;
     letter-spacing: 3px;
     font-weight: 700;
-}
-
-#login_form {
+  }
+  
+  #login_form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
-}
-
-.input_field{
+    justify-content: center;
+  }
+  
+  .input_field {
     border-radius: 5px;
     padding: 0.5vw 3vw;
     margin-top: 2vw;
-
-}
-
-.submit_btn{
+  }
+  
+  .submit_btn {
     padding: 0.75vw 6vw;
     cursor: pointer;
     margin: 3vw 0vw 0vw 0vw;
@@ -76,8 +75,70 @@ body{
     z-index: 1;
     color: aliceblue;
     transition: all 0.3s ease;
-}
-
-#login_btn:hover{
+  }
+  
+  #login_btn:hover {
     margin-top: 2.8vw;
-}
+  }
+  
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 300px;
+    text-align: center;
+    animation: popup-show 0.3s ease-out;
+  }
+  
+  .popup-show {
+    display: block;
+  }
+  
+  .popup p {
+    font-family: "Montserrat", sans-serif;
+    color: #5b6e74;
+    margin: 0 0 20px;
+  }
+  
+  .popup-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #12786c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup-btn:hover {
+    background-color: #105f56;
+  }
+  
+  @keyframes popup-show {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
