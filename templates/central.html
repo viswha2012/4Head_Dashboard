@@ -40,17 +40,17 @@
 
         <script>
         async function fetchGuestTokenFromBackend() {
-        let response = await fetch('http://127.0.0.1:5000/guest-token?dashboard_id=8ddb3ada-daf5-49ba-952c-b4b17bbb8961');
+        let response = await fetch('http://127.0.0.1:5000/guest-token?dashboard_id=0596b651-13e7-4e09-9f9c-acf78ff96374');
         let data = await response.json()
         return data
         }                      
 
         const myDashboard = presetSdk.embedDashboard({
-        id: "8ddb3ada-daf5-49ba-952c-b4b17bbb8961",
-        supersetDomain: "https://f884644f.us1a.app.preset.io",
+        id: "0596b651-13e7-4e09-9f9c-acf78ff96374",
+        supersetDomain: "https://1296954c.us1a.app.preset.io",
         mountPoint: document.getElementById("dashboard-container"), 
 
-        fetchGuestToken: () => fetchGuestTokenFromBackend("8ddb3ada-daf5-49ba-952c-b4b17bbb8961"),
+        fetchGuestToken: () => fetchGuestTokenFromBackend("0596b651-13e7-4e09-9f9c-acf78ff96374"),
         dashboardUiConfig: {hideTitle: true, hideChartControls: true}, 
 
         });
