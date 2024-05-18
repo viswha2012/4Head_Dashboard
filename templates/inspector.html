@@ -56,16 +56,16 @@
           <p id="dashboard-container3"></p>
           <script>
             async function fetchGuestTokenFromBackend(dashboardId) {
-                let response = await fetch("http://127.0.0.1:5000/guest-token?dashboard_id=c24117c3-db17-4c8b-b6d5-6569e3552ac4");
+                let response = await fetch("http://127.0.0.1:5000/guest-token?dashboard_id=a3937c4c-e78f-469c-915d-276f9fbd92f8");
                 let data = await response.json();
                 return data;
             }
     
             const myDashboard = presetSdk.embedDashboard({
-                id: "c24117c3-db17-4c8b-b6d5-6569e3552ac4",
-                supersetDomain: "https://f884644f.us1a.app.preset.io",
+                id: "a3937c4c-e78f-469c-915d-276f9fbd92f8",
+                supersetDomain: "https://1296954c.us1a.app.preset.io",
                 mountPoint: document.getElementById("dashboard-container3"),
-                fetchGuestToken: () => fetchGuestTokenFromBackend("c24117c3-db17-4c8b-b6d5-6569e3552ac4"),
+                fetchGuestToken: () => fetchGuestTokenFromBackend("a3937c4c-e78f-469c-915d-276f9fbd92f8"),
                 dashboardUiConfig: {hideTitle: true, hideChartControls: true},
             });
           </script>
