@@ -14,17 +14,17 @@ app.secret_key = 'your_secret_key'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-API_TOKEN = "5241e6a8-7a00-4900-ba53-06f8534b88ac"
-API_SECRET = "fa5b8d414716f8ebc108de54e84967ffd4e92e76bb2983b342cb494feacc258c"
+API_TOKEN = "f318e285-9792-4f0f-9c90-398a5d7a3c0d"
+API_SECRET = "cbbf40431893fb22211c09722bc0df319612c97bb9af1869222bfe478b1ad5dc"
 
-DASHBOARD_ID_C = "8ddb3ada-daf5-49ba-952c-b4b17bbb8961"
-DASHBOARD_ID_P = "b790a00c-d039-4672-a358-f914bfa4985a"
-DASHBOARD_ID_I = "c24117c3-db17-4c8b-b6d5-6569e3552ac4"
-DASHBOARD_ID_D = "8f0249ef-7c08-472d-a1c9-08187cb8fb36"
+DASHBOARD_ID_C = "0596b651-13e7-4e09-9f9c-acf78ff96374"
+DASHBOARD_ID_P = "45818bbc-bf51-40c5-a84b-3a57e3f613cd"
+DASHBOARD_ID_I = "a3937c4c-e78f-469c-915d-276f9fbd92f8"
+DASHBOARD_ID_D = "1255f209-4d57-4ea3-86e0-26edcc456f49"
 
-SUPERSET_DOMAIN = "https://f884644f.us1a.app.preset.io"
-PRESET_TEAM = "23a09e83"
-WORKSPACE_SLUG = "f884644f"
+SUPERSET_DOMAIN = "https://1296954c.us1a.app.preset.io"
+PRESET_TEAM = "ce7d1299"
+WORKSPACE_SLUG = "1296954c"
 
 
 @login_manager.user_loader
@@ -101,7 +101,7 @@ def guest_token():
     print("Payload:", payload)
     bearer_token = "Bearer " + preset_access_token
     response2 = requests.post(
-        "https://manage.app.preset.io/api/v1/teams/23a09e83/workspaces/f884644f/guest-token/",
+        "https://manage.app.preset.io/api/v1/teams/ce7d1299/workspaces/1296954c/guest-token/",
         data=payload,
         headers={"Authorization": bearer_token, 'Accept': 'application/json', 'Content-Type': 'application/json'}
     )
