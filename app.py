@@ -7,7 +7,7 @@ import requests
 import json
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:AMZTKgwfadRRjrcMyPdiaTYsJTMMuTJz@viaduct.proxy.rlwy.net:18329/railway'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:IePdnhHQTMYuLZdacSUSfuidTltQauIP@roundhouse.proxy.rlwy.net:34416/railway'
 db = SQLAlchemy(app)
 app.secret_key = 'your_secret_key'
 
@@ -38,6 +38,13 @@ class User(db.Model):
     password = db.Column(db.String(50))
     role = db.Column(db.String(50))
     fullname = db.Column(db.String(50))
+
+    def __init__(self, id, username, password, role, fullname):
+        self.id = id
+        self.username = username
+        self.password = password
+        self.role = role
+        self.fullname = fullname
  
 
 ssession = HTMLSession()
@@ -119,9 +126,20 @@ def auth():
         if details.password == password:
             session['role'] = details.role
             session['fullname'] = details.fullname
+            if session['role']=='register':
+                return redirect('/register')
+            else:
+                return redirect('/central')
+            
             return jsonify(success=True), 200  # Successful login
 
     return jsonify(success=False, message='Invalid username or password. Please try again.'), 401  # Failed login
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    session.clear()  # Clear the session
+    return redirect(url_for('login'))  # Redirect to the login page
     
 """@app.route('/login', methods=['POST'])
 def auth():
@@ -136,6 +154,25 @@ def auth():
     
     return 'Invalid username or password. Please try again.'"""
 
+@app.route("/register")
+def register():
+        return render_template("register.html")
+
+@app.route("/upload", methods=["GET", "POST"])
+def postdb():
+    username = request.form['username']
+    password = request.form['password']
+    fullname = request.form['fullname']
+    role = request.form['role_select']
+    if User.query.filter_by(username=username).first():
+        return 'Account under that username already exists.'
+    else:
+        max_id = db.session.query(db.func.max(User.id)).scalar() or 0
+        new_id = max_id + 1
+        usr = User(id=new_id, username=username, password=password, role=role, fullname=fullname)
+        db.session.add(usr)
+        db.session.commit()
+        return redirect(url_for('login'))
 
 @app.route("/central")
 def central():
