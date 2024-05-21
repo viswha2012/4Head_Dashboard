@@ -76,6 +76,10 @@
           <p id="pname">{{ name }}</p>
           <img src="../static/prof.png" id="profile_logo" />
         </div>
+         <div class="logout-div">
+          <a href="{{ url_for('logout') }}"
+            ><button id="logout-button">Logout</button></a
+          >
         <div class="work_div">
           <button type="button" onclick="openPopUp()" id="open_work">Open Work Table</button>
           <div class="work" id="popup">
@@ -136,6 +140,32 @@
           <input type="text" id="textInput" class="inputbox" placeholder="Enter text...">
           <button type="submit" class="inputbutton">Submit</button>
           </form>
+        </div>
+           <div class="links_container">
+          <p class="link_para">
+            <img id="linkimg" src="../static/x-twitter.png" /><a
+              id="source_link"
+              href=" https://x.com/DgpKarnataka?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3ADgpKarnataka%7Ctwcon%5Es1_c1
+
+            "
+              >Twitter
+            </a>
+          </p>
+          <p class="link_para">
+            <img id="linkimg" src="../static/youtube.png" /><a
+              id="source_link"
+              href="https://www.youtube.com/@blrcitypoliceofficial/featured"
+              >YouTube
+            </a>
+          </p>
+          <p class="link_para">
+            <img id="linkimg" src="../static/chart-simple-solid.png" /><a
+              id="source_link"
+              href=" https://ksp.karnataka.gov.in/info-2/Departmental+Statistics/en
+            "
+              >Department Statistics
+            </a>
+          </p>
         </div>
       </div>
       <div class="dashboard"></div>
