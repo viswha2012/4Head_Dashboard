@@ -24,7 +24,7 @@ DASHBOARD_ID_D = "1255f209-4d57-4ea3-86e0-26edcc456f49"
 
 SUPERSET_DOMAIN = "https://1296954c.us1a.app.preset.io"
 PRESET_TEAM = "ce7d1299"
-WORKSPACE_SLUG = "1296954c"
+WORKSPACE_SLUG = "1296954c"
 
 
 @login_manager.user_loader
@@ -127,32 +127,18 @@ def auth():
             session['role'] = details.role
             session['fullname'] = details.fullname
             if session['role']=='register':
-                return redirect('/register')
+                return redirect('/register') 
             else:
-                return redirect('/central')
+                return redirect('/central') 
             
-            return jsonify(success=True), 200  # Successful login
-
-    return jsonify(success=False, message='Invalid username or password. Please try again.'), 401  # Failed login
+    flash("Invalid username or password. Please try again.")
+    return redirect(url_for('login'))
 
 @app.route('/logout')
 def logout():
     logout_user()
     session.clear()  # Clear the session
     return redirect(url_for('login'))  # Redirect to the login page
-    
-"""@app.route('/login', methods=['POST'])
-def auth():
-    username = request.form['username']
-    password = request.form['password']
-
-    if username=="viswha":
-        if password == "1234":
-            session['role'] = "precinct"
-            session['fullname'] = "viswha vijay"
-            return redirect('/central')
-    
-    return 'Invalid username or password. Please try again.'"""
 
 @app.route("/register")
 def register():
@@ -165,7 +151,8 @@ def postdb():
     fullname = request.form['fullname']
     role = request.form['role_select']
     if User.query.filter_by(username=username).first():
-        return 'Account under that username already exists.'
+        
+        return "User already exists!" 
     else:
         max_id = db.session.query(db.func.max(User.id)).scalar() or 0
         new_id = max_id + 1
