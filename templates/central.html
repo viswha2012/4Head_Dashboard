@@ -65,6 +65,11 @@
           <p id="pname">{{ name }}</p>
           <img src="../static/prof.png" id="profile_logo" />
         </div>
+         <div class="logout-div">
+          <a href="{{ url_for('logout') }}"
+            ><button id="logout-button">Logout</button></a
+          >
+        </div>
         <div class="news">
           <h1 id="news_heading">On-the-Go Reports</h1>
           <div class="news_title">
@@ -72,6 +77,32 @@
             <p id="news-text">• {{ title }}</p>
             {% endfor %}
           </div>
+        </div>
+        <div class="links_container">
+          <p class="link_para">
+            <img id="linkimg" src="../static/x-twitter.png" /><a
+              id="source_link"
+              href=" https://x.com/DgpKarnataka?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3ADgpKarnataka%7Ctwcon%5Es1_c1
+
+            "
+              >Twitter
+            </a>
+          </p>
+          <p class="link_para">
+            <img id="linkimg" src="../static/youtube.png" /><a
+              id="source_link"
+              href="https://www.youtube.com/@blrcitypoliceofficial/featured"
+              >YouTube
+            </a>
+          </p>
+          <p class="link_para">
+            <img id="linkimg" src="../static/chart-simple-solid.png" /><a
+              id="source_link"
+              href=" https://ksp.karnataka.gov.in/info-2/Departmental+Statistics/en
+            "
+              >Department Statistics
+            </a>
+          </p>
         </div>
       </div>
     </div>
