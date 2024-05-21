@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create Account</title>
+    <link rel="stylesheet" href="../static/register.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,user-scalable=no"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left_scan">
+        <h1 id="heading">ADMIN REGISTER</h1>
+      </div>
+      <div class="right_scan">
+        <div class="header">
+          <img src="../static/image-removebg-preview (5).png" id="ksp_logo" />
+          <h1 id="ksp_heading">KARNATAKA <br />STATE <br />POLICE</h1>
+        </div>
+        <div class="register_sec">
+          <form
+            id="register_form"
+            class="input_group"
+            action="/upload"
+            method="post"
+          >
+            <input
+              type="text"
+              name="username"
+              class="input_field"
+              id="username"
+              placeholder="Enter User ID"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              class="input_field"
+              id="password"
+              placeholder="Enter Password"
+              required
+            />
+            <input
+              type="text"
+              name="fullname"
+              class="input_field"
+              id="fullname"
+              placeholder="Enter Full Name"
+              required
+            />
+            <div class="dropdown_menu">
+              <label id="label" for="role_select">Select a role:</label>
+              <select name="role_select" id="roles" required>
+                <option value="dysp">DySP</option>
+                <option value="inspector">Inspector</option>
+                <option value="precinct">Precinct</option>
+                <option value="register">Admin</option>
+              </select>
+            </div>
+            <button type="submit" class="submit_btn" id="register_btn">
+              Add New Account
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
